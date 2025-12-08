@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
+export function compile(text: string): any;
 export function greet(): string;
 export function evaluate(code: string): string;
-export function compile(text: string): any;
 export class WasmCodeObject {
   private constructor();
   free(): void;
@@ -12,10 +12,10 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly greet: () => [number, number];
-  readonly evaluate: (a: number, b: number) => [number, number];
   readonly __wbg_wasmcodeobject_free: (a: number, b: number) => void;
   readonly compile: (a: number, b: number) => [number, number, number];
+  readonly evaluate: (a: number, b: number) => [number, number];
+  readonly greet: () => [number, number];
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
