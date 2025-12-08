@@ -6,7 +6,7 @@ const buildExtra = () => {
   return (
     <p>
       For a full list, see the{" "}
-      <a href="https://github.com/JonesBeach/memphis/blob/main/docs/SUPPORTED.md">
+      <a href="https://github.com/fromscratchcode/memphis/blob/main/docs/SUPPORTED.md">
         Memphis documentation
       </a>
       .

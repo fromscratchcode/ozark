@@ -1,12 +1,17 @@
 /* tslint:disable */
 /* eslint-disable */
-export function compile(text: string): any;
-export function greet(): string;
-export function evaluate(code: string): string;
+
 export class WasmCodeObject {
   private constructor();
   free(): void;
+  [Symbol.dispose](): void;
 }
+
+export function compile(text: string): any;
+
+export function evaluate(code: string): string;
+
+export function greet(): string;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
@@ -19,12 +24,13 @@ export interface InitOutput {
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
-  readonly __wbindgen_export_3: WebAssembly.Table;
+  readonly __wbindgen_externrefs: WebAssembly.Table;
   readonly __externref_table_dealloc: (a: number) => void;
   readonly __wbindgen_start: () => void;
 }
 
 export type SyncInitInput = BufferSource | WebAssembly.Module;
+
 /**
 * Instantiates the given `module`, which can either be bytes or
 * a precompiled `WebAssembly.Module`.
