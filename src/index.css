@@ -1,5 +1,17 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --theme-dark-blue: #0460bd;
+  --console-bg: #e0e0e0;
+  --console-fg: #000;
+
+  --corner: 6px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,

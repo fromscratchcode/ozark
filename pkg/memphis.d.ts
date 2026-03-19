@@ -1,29 +1,25 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export class WasmCodeObject {
-  private constructor();
-  free(): void;
-  [Symbol.dispose](): void;
-}
-
 export function compile(text: string): any;
 
 export function evaluate(code: string): string;
 
 export function greet(): string;
 
+export function lex(text: string): any;
+
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly __wbg_wasmcodeobject_free: (a: number, b: number) => void;
   readonly compile: (a: number, b: number) => [number, number, number];
   readonly evaluate: (a: number, b: number) => [number, number];
   readonly greet: () => [number, number];
-  readonly __wbindgen_free: (a: number, b: number, c: number) => void;
+  readonly lex: (a: number, b: number) => any;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+  readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_externrefs: WebAssembly.Table;
   readonly __externref_table_dealloc: (a: number) => void;
   readonly __wbindgen_start: () => void;

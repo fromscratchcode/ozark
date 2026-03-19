@@ -14,8 +14,7 @@ A starter Python interpreter written in Rust. This is intended as a learning exe
 See [SUPPORTED.md](docs/SUPPORTED.md) for details on specific features.
 
 ## Design Goals
-- Minimal dependencies. Uses zero dependencies by default, or enable the REPL, Python stdlib, or LLVM backend as needed. This means you can run Python code which does not call the stdlib (limiting, I know) through the treewalk interpreter or bytecode VM using no third-party Rust code. I find this kinda neat and worth preserving.
-  - `pyo3`: Only needed for c_stdlib functionality.
+- Minimal dependencies. Uses zero dependencies by default, or enable the REPL, or LLVM backend as needed. This means you can run Python code which does not call the stdlib (limiting, I know) through the treewalk interpreter or bytecode VM using no third-party Rust code. I find this kinda neat and worth preserving.
   - `crossterm`: Only needed for REPL support.
   - `inkwell`: Only needed if using the LLVM backend.
 - No shortcuts. This is a learning exercise, so try to do things the "right" way, even if it takes a few tries.
@@ -44,7 +43,11 @@ memphis 0.1.0 REPL (engine: treewalk) (Type 'exit()' to quit)
 See [DEVELOPING.md](docs/DEVELOPING.md) for instructions on local development.
 
 ## Contributing
-Obviously there's a lot left to do here. If you want to help or use one of the pieces here to explore your own curiosity in interpreter/compiler development, reach out to us [on Discord](https://discord.com/invite/W3AEHyEh4G).
+Memphis is a personal lab where I explore how Python works under the hood.
+
+The code is open to explore and learn from, but I’m not actively seeking external contributions.
+
+If you’re building something similar or just want to chat, feel free to reach out [on Discord](https://discord.com/invite/W3AEHyEh4G).
 
 ## Disclaimer
 **Important Notice:** This project is currently in active development and is still considered experimental. As such, it is not recommended for use in production environments.

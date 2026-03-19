@@ -1,4 +1,4 @@
-import styles from "./App.module.css";
+import styles from "./Console.module.css";
 
 const needsExtra = (error) => error.indexOf("Unsupported feature") !== -1;
 

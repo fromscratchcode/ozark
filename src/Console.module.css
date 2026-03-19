@@ -1,0 +1,17 @@
+.consoleBox {
+  flex: 1;
+  background: var(--console-bg);
+  color: var(--console-fg);
+  border-radius: var(--corner) !important;
+}
+
+.consoleOutput {
+  /* This is to protect us from host pre styles */
+  background: var(--console-bg) !important;
+  /* This is to protect us from host pre styles */
+  border-radius: var(--corner) !important;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  padding: 0.5rem;
+  margin: 0;
+}

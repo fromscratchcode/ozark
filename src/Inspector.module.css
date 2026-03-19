@@ -1,0 +1,6 @@
+.outputContainer {
+  flex: 1;
+  font-family: monospace;
+  min-height: 100px;
+  padding: 0.5rem;
+}

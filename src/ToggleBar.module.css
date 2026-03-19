@@ -1,0 +1,33 @@
+.buttonGroup {
+  display: flex;
+  height: 100%;
+  border: 2px solid var(--theme-dark-blue);
+  border-radius: var(--corner);
+  overflow: hidden;
+}
+
+.buttonGroup .btn {
+  flex: 1;
+  background: white;
+  color: var(--theme-dark-blue);
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+/* remove inner divider duplication */
+.buttonGroup .btn + .btn {
+  border-left: 1px solid var(--theme-dark-blue);
+}
+
+.buttonGroup .btn:hover {
+  background: #eff6ff;
+}
+
+.buttonGroup .btn.active {
+  background: var(--theme-dark-blue);
+  color: white;
+}

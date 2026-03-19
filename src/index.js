@@ -1,1 +1,2 @@
-export { default as BytecodeCompiler } from "./App";
+import "./index.css";
+export { default as Ozark } from "./App";
