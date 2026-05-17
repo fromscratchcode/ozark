@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Ozark lets you inspect Python from source to bytecode. It is built with React and powered by [Memphis](https://github.com/fromscratchcode/memphis), a Python interpreter written from scratch in Rust.
+Ozark lets you inspect Python from source to bytecode. It is built with React and powered by [Memphis](https://fromscratchcode.com/memphis/), a Python interpreter written from scratch in Rust.
 
 Ozark does not aim to replicate the full CPython [dis module](https://docs.python.org/3/library/dis.html), but rather an in-progress [feature set](https://github.com/fromscratchcode/memphis/blob/main/docs/SUPPORTED.md).
 
