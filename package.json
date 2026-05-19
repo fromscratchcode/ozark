@@ -15,9 +15,10 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "dev": "vite",
     "build": "vite build",
+    "build:lib": "vite build --mode lib",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "npm run build"
+    "prepare": "npm run build:lib"
   },
   "dependencies": {
     "@codemirror/commands": "^6.10.3",
