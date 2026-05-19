@@ -7,7 +7,10 @@ const Inspector = ({ data, darkMode }) => (
   <div className={styles.outputContainer}>
     {data && (
       <JsonView
-        style={darkMode ? darkTheme : lightTheme}
+        style={{
+          ...(darkMode ? darkTheme : lightTheme),
+          fontSize: "1rem",
+        }}
         value={data}
         enableClipboard={false}
         displayObjectSize={false}
