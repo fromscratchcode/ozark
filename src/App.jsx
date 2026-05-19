@@ -6,14 +6,8 @@ import Inspector from "./Inspector";
 import { getCodeFromURL, setCodeInURL } from "./urlState";
 import styles from "./App.module.css";
 import CodeForm from "./CodeForm.jsx";
+import { DEFAULT_CODE } from "./examples";
 import ToggleBar from "./ToggleBar.jsx";
-
-const INITIAL_CODE = `y = 42
-
-def foo(x, z):
-    return x + y + z
-
-foo(11,12)`;
 
 const App = ({ darkMode = false }) => {
   const [code, setCode] = useState("");
@@ -26,7 +20,7 @@ const App = ({ darkMode = false }) => {
   useEffect(() => {
     init().then(() => {
       setWasmLoaded(true);
-      const initial = getCodeFromURL() || INITIAL_CODE;
+      const initial = getCodeFromURL() || DEFAULT_CODE;
       setCode(initial);
     });
   }, []);
@@ -55,10 +49,14 @@ const App = ({ darkMode = false }) => {
           <CodeForm code={code} setCode={setCode} darkMode={darkMode} />
         </div>
         <div className={styles.toggleContainer}>
-          <ToggleBar viewMode={viewMode} setViewMode={setViewMode} />
+          <ToggleBar
+            viewMode={viewMode}
+            setViewMode={setViewMode}
+            darkMode={darkMode}
+          />
         </div>
         <div className={styles.consoleContainer}>
-          <Console error={error} />
+          <Console error={error} darkMode={darkMode} />
         </div>
       </div>
       <div

@@ -2,7 +2,13 @@
   flex: 1;
   background: var(--console-bg);
   color: var(--console-fg);
+  border: 1px solid var(--theme-dark-blue);
   border-radius: var(--corner) !important;
+}
+
+.darkMode {
+  background: #111;
+  color: #f3f3f3;
 }
 
 .consoleOutput {
@@ -10,8 +16,18 @@
   background: var(--console-bg) !important;
   /* This is to protect us from host pre styles */
   border-radius: var(--corner) !important;
+  font-size: 1rem;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   padding: 0.5rem;
   margin: 0;
+}
+
+.darkMode .consoleOutput {
+  background: #111 !important;
+  color: #f3f3f3;
+}
+
+.darkMode a {
+  color: #9ecbff;
 }

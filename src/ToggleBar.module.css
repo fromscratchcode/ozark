@@ -11,7 +11,9 @@
   background: white;
   color: var(--theme-dark-blue);
   border: none;
-  font-size: 16px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
   transition:
     background 0.15s ease,
@@ -30,4 +32,21 @@
 .buttonGroup .btn.active {
   background: var(--theme-dark-blue);
   color: white;
+}
+
+.darkMode {
+  border-color: var(--theme-dark-blue);
+}
+
+.darkMode .btn {
+  background: #202020;
+  color: var(--theme-dark-blue);
+}
+
+.darkMode .btn + .btn {
+  border-left-color: var(--theme-dark-blue);
+}
+
+.darkMode .btn:hover:not(.active) {
+  background: rgba(4, 96, 189, 0.14);
 }

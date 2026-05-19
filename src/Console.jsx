@@ -14,11 +14,11 @@ const buildExtra = () => {
   );
 };
 
-const Console = ({ error }) => {
+const Console = ({ error, darkMode = false }) => {
   const firstLine = error ? error : "Success!";
   const secondLine = needsExtra(error) ? buildExtra() : null;
   return (
-    <div className={styles.consoleBox}>
+    <div className={`${styles.consoleBox} ${darkMode ? styles.darkMode : ""}`}>
       <pre className={styles.consoleOutput}>
         {firstLine}
         {secondLine}
