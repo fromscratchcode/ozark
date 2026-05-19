@@ -38,7 +38,7 @@ body {
 
 .standaloneBrand {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   gap: 0.75rem;
   min-width: 0;
 }
@@ -48,7 +48,7 @@ body {
   color: inherit;
   font-size: 1.5rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .standaloneShellDark .standaloneTitle {
@@ -75,7 +75,8 @@ body {
   font: inherit;
   font-size: 0.875rem;
   font-weight: 600;
-  padding: 0.55rem 0.95rem;
+  line-height: 1;
+  padding: 0.4rem 0.7rem;
   transition:
     background 0.15s ease,
     color 0.15s ease,
