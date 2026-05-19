@@ -119,10 +119,22 @@ const CodeForm = ({ code, setCode, darkMode }) => {
   }, [copyState]);
 
   const handleCopyLink = async () => {
+    const shareURL = window.location.href;
+
     try {
-      await copyText(window.location.href);
+      if (navigator.share) {
+        await navigator.share({
+          title: "Ozark",
+          text: "Inspect Python from source to bytecode",
+          url: shareURL,
+        });
+        return;
+      }
+
+      await copyText(shareURL);
       setCopyState("copied");
-    } catch {
+    } catch (error) {
+      if (error?.name === "AbortError") return;
       setCopyState("error");
     }
   };
@@ -216,7 +228,11 @@ const CodeForm = ({ code, setCode, darkMode }) => {
           className={styles.shareButton}
           onClick={handleCopyLink}
         >
-          {copyState === "copied" ? "Copied" : "Copy Share Link"}
+          {copyState === "copied"
+            ? "Copied"
+            : navigator.share
+              ? "Share"
+              : "Copy Share Link"}
         </button>
       </div>
       {copyState === "error" && (
