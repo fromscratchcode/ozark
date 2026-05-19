@@ -22,6 +22,15 @@ const StandaloneApp = () => {
   return (
     <div className={`standaloneShell ${darkMode ? "standaloneShellDark" : ""}`}>
       <div className="standaloneToolbar">
+        <div className="standaloneBrand">
+          <h1 className="standaloneTitle">Ozark</h1>
+          <a
+            className="standaloneLearnMore"
+            href="https://fromscratchcode.com/ozark/?"
+          >
+            Learn more
+          </a>
+        </div>
         <button
           type="button"
           className="themeToggle"
