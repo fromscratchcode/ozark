@@ -197,7 +197,7 @@ const CodeForm = ({ code, setCode, darkMode }) => {
     <div className={`${styles.editorPanel} ${darkMode ? styles.darkMode : ""}`}>
       <div className={styles.toolbar}>
         <div className={styles.examplesRow}>
-          <span className={styles.examplesLabel}>Examples</span>
+          <span className={styles.examplesLabel}>Try:</span>
           <div className={styles.exampleList}>
             {EXAMPLES.map((example) => (
               <button
