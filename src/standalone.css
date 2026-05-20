@@ -67,6 +67,9 @@ body {
 }
 
 .themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--theme-dark-blue);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
@@ -76,21 +79,31 @@ body {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1;
-  padding: 0.4rem 0.7rem;
+  padding: 0.55rem;
   transition:
     background 0.15s ease,
     color 0.15s ease,
     border-color 0.15s ease;
 }
 
+.themeToggleIcon {
+  height: 1em;
+  font-size: 1rem;
+  vertical-align: -0.125em;
+}
+
 .themeToggle:hover {
-  background: #fff;
+  background: #eff6ff;
 }
 
 .standaloneShellDark .themeToggle {
   border-color: var(--theme-dark-blue);
   background: rgba(16, 16, 16, 0.88);
   color: var(--theme-dark-blue);
+}
+
+.standaloneShellDark .themeToggle:hover {
+  background: rgba(4, 96, 189, 0.14);
 }
 
 .standaloneShellDark .standaloneLearnMore {

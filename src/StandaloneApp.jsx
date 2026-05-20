@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 import App from "./App.jsx";
 
@@ -36,7 +38,11 @@ const StandaloneApp = () => {
           className="themeToggle"
           onClick={() => setDarkMode((current) => !current)}
         >
-          {darkMode ? "Light Mode" : "Dark Mode"}
+          <FontAwesomeIcon
+            icon={darkMode ? faSun : faMoon}
+            className="themeToggleIcon"
+            aria-hidden="true"
+          />
         </button>
       </div>
       <div className="standaloneAppFrame">
