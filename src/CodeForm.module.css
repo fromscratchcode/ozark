@@ -141,6 +141,30 @@
   min-height: 0;
 }
 
+.darkMode .editor :global(.cm-scroller) {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(4, 96, 189, 0.75) rgba(8, 18, 28, 0.9);
+}
+
+.darkMode .editor :global(.cm-scroller::-webkit-scrollbar) {
+  width: 12px;
+  height: 12px;
+}
+
+.darkMode .editor :global(.cm-scroller::-webkit-scrollbar-track) {
+  background: rgba(8, 18, 28, 0.9);
+}
+
+.darkMode .editor :global(.cm-scroller::-webkit-scrollbar-thumb) {
+  background: linear-gradient(180deg, rgba(4, 96, 189, 0.9), rgba(1, 132, 166, 0.88));
+  border: 2px solid rgba(8, 18, 28, 0.9);
+  border-radius: 999px;
+}
+
+.darkMode .editor :global(.cm-scroller::-webkit-scrollbar-thumb:hover) {
+  background: linear-gradient(180deg, rgba(4, 96, 189, 1), rgba(1, 132, 166, 0.96));
+}
+
 .editor :global(.cm-content) {
   tab-size: 4;
 }
