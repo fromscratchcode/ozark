@@ -11,6 +11,10 @@ body {
 }
 
 .standaloneShell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
   padding: 1rem;
@@ -32,6 +36,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  width: 100%;
   max-width: 2400px;
   margin: 0 auto 0.75rem;
 }
@@ -111,13 +116,15 @@ body {
 }
 
 .standaloneAppFrame {
-  /* Keep vh as a fallback and prefer dvh where supported for mobile browser chrome. */
-  height: calc(100vh - 4.75rem);
-  height: calc(100dvh - 4.75rem);
+  flex: 1;
   min-height: 0;
 }
 
 @media (max-width: 1024px) {
+  .standaloneShell {
+    height: auto;
+  }
+
   .standaloneAppFrame {
     height: auto;
     min-height: calc(100vh - 4.75rem);
