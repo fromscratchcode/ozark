@@ -26,7 +26,7 @@ const StandaloneApp = () => {
           <h1 className="standaloneTitle">Ozark</h1>
           <a
             className="standaloneLearnMore"
-            href="https://fromscratchcode.com/ozark/?"
+            href="https://fromscratchcode.com/ozark/"
           >
             Learn more
           </a>
