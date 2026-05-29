@@ -64,13 +64,21 @@
 }
 
 .darkMode::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(4, 96, 189, 0.9), rgba(1, 132, 166, 0.88));
+  background: linear-gradient(
+    180deg,
+    rgba(4, 96, 189, 0.9),
+    rgba(1, 132, 166, 0.88)
+  );
   border: 2px solid rgba(8, 18, 28, 0.9);
   border-radius: 999px;
 }
 
 .darkMode::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(4, 96, 189, 1), rgba(1, 132, 166, 0.96));
+  background: linear-gradient(
+    180deg,
+    rgba(4, 96, 189, 1),
+    rgba(1, 132, 166, 0.96)
+  );
 }
 
 @media (max-width: 1024px) {

@@ -13,13 +13,16 @@ export function compile(text: string): any;
 
 export function lex(text: string): any;
 
+export function parse(text: string): any;
+
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly __wbg_wasmrepl_free: (a: number, b: number) => void;
   readonly compile: (a: number, b: number) => [number, number, number];
   readonly lex: (a: number, b: number) => any;
+  readonly parse: (a: number, b: number) => [number, number, number];
+  readonly __wbg_wasmrepl_free: (a: number, b: number) => void;
   readonly wasmrepl_input_line: (a: number, b: number, c: number) => any;
   readonly wasmrepl_new: () => number;
   readonly wasmrepl_reset: (a: number) => void;

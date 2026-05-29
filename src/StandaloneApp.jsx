@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
-import App from "./App.jsx";
+import Ozark from "./Ozark";
 
 const getInitialDarkMode = () =>
   window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -46,7 +46,7 @@ const StandaloneApp = () => {
         </button>
       </div>
       <div className="standaloneAppFrame">
-        <App darkMode={darkMode} />
+        <Ozark darkMode={darkMode} />
       </div>
     </div>
   );

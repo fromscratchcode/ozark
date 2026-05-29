@@ -5,8 +5,7 @@
   min-height: 0;
   border: 1px solid var(--theme-dark-blue);
   border-radius: var(--corner);
-  background:
-    linear-gradient(180deg, #f6f9ff 0%, #ffffff 20%, #ffffff 100%);
+  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 20%, #ffffff 100%);
   color: #000;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(4, 96, 189, 0.08);
@@ -156,13 +155,21 @@
 }
 
 .darkMode .editor :global(.cm-scroller::-webkit-scrollbar-thumb) {
-  background: linear-gradient(180deg, rgba(4, 96, 189, 0.9), rgba(1, 132, 166, 0.88));
+  background: linear-gradient(
+    180deg,
+    rgba(4, 96, 189, 0.9),
+    rgba(1, 132, 166, 0.88)
+  );
   border: 2px solid rgba(8, 18, 28, 0.9);
   border-radius: 999px;
 }
 
 .darkMode .editor :global(.cm-scroller::-webkit-scrollbar-thumb:hover) {
-  background: linear-gradient(180deg, rgba(4, 96, 189, 1), rgba(1, 132, 166, 0.96));
+  background: linear-gradient(
+    180deg,
+    rgba(4, 96, 189, 1),
+    rgba(1, 132, 166, 0.96)
+  );
 }
 
 .editor :global(.cm-content) {
