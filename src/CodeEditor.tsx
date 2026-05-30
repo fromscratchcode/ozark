@@ -17,9 +17,15 @@ import {
 
 import styles from "./CodeForm.module.css";
 
+interface CodeEditorProps {
+  code: string;
+  setCode: (code: string) => void;
+  darkMode: boolean;
+}
+
 const themeCompartment = new Compartment();
 
-const createTheme = (darkMode) =>
+const createTheme = (darkMode: boolean) =>
   EditorView.theme(
     {
       "&": {
@@ -82,13 +88,15 @@ const createTheme = (darkMode) =>
     { dark: darkMode },
   );
 
-const CodeEditor = ({ code, setCode, darkMode }) => {
-  const editorRef = useRef(null);
-  const viewRef = useRef(null);
+const CodeEditor = ({ code, setCode, darkMode }: CodeEditorProps) => {
+  const editorRef = useRef<HTMLDivElement | null>(null);
+  const viewRef = useRef<EditorView | null>(null);
   const initialThemeRef = useRef(createTheme(darkMode));
 
   useEffect(() => {
-    if (!editorRef.current) return undefined;
+    if (!editorRef.current) {
+      return undefined;
+    }
 
     const startState = EditorState.create({
       doc: "",
@@ -126,7 +134,9 @@ const CodeEditor = ({ code, setCode, darkMode }) => {
   useEffect(() => {
     const view = viewRef.current;
 
-    if (!view) return;
+    if (!view) {
+      return;
+    }
 
     view.dispatch({
       effects: themeCompartment.reconfigure(createTheme(darkMode)),
@@ -136,11 +146,15 @@ const CodeEditor = ({ code, setCode, darkMode }) => {
   useEffect(() => {
     const view = viewRef.current;
 
-    if (!view) return;
+    if (!view) {
+      return;
+    }
 
     const currentCode = view.state.doc.toString();
 
-    if (code === currentCode) return;
+    if (code === currentCode) {
+      return;
+    }
 
     view.dispatch({
       changes: {

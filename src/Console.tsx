@@ -1,6 +1,12 @@
 import styles from "./Console.module.css";
 
-const needsExtra = (error) => error.indexOf("Unsupported feature") !== -1;
+interface ConsoleProps {
+  error: string;
+  darkMode?: boolean;
+}
+
+const needsExtra = (error: string): boolean =>
+  error.indexOf("Unsupported feature") !== -1;
 
 const buildExtra = () => {
   return (
@@ -14,9 +20,10 @@ const buildExtra = () => {
   );
 };
 
-const Console = ({ error, darkMode = false }) => {
-  const firstLine = error ? error : "Success!";
+const Console = ({ error, darkMode = false }: ConsoleProps) => {
+  const firstLine = error || "Success!";
   const secondLine = needsExtra(error) ? buildExtra() : null;
+
   return (
     <div className={`${styles.consoleBox} ${darkMode ? styles.darkMode : ""}`}>
       <pre className={styles.consoleOutput}>

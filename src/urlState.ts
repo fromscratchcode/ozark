@@ -1,6 +1,6 @@
-const encode = (str) => btoa(encodeURIComponent(str));
+const encode = (str: string): string => btoa(encodeURIComponent(str));
 
-const decode = (str) => {
+const decode = (str: string): string => {
   try {
     return decodeURIComponent(atob(str));
   } catch {
@@ -8,13 +8,13 @@ const decode = (str) => {
   }
 };
 
-export const getCodeFromURL = () => {
+export const getCodeFromURL = (): string => {
   const params = new URLSearchParams(window.location.search);
   const encoded = params.get("code");
   return encoded ? decode(encoded) : "";
 };
 
-export const setCodeInURL = (code) => {
+export const setCodeInURL = (code: string): void => {
   const encoded = encode(code);
   const params = new URLSearchParams(window.location.search);
   params.set("code", encoded);

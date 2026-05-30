@@ -7,8 +7,9 @@ export default defineConfig(({ mode }) => ({
     mode === "lib"
       ? {
           lib: {
-            entry: "./src/index.js",
+            entry: "./src/index.ts",
             formats: ["es"],
+            // Write the built library bundle to dist/index.js.
             fileName: () => "index.js",
           },
           rollupOptions: {

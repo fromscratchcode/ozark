@@ -4,7 +4,7 @@ import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 import Ozark from "./Ozark";
 
-const getInitialDarkMode = () =>
+const getInitialDarkMode = (): boolean =>
   window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 const StandaloneApp = () => {
@@ -12,7 +12,8 @@ const StandaloneApp = () => {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (event) => setDarkMode(event.matches);
+    const handleChange = (event: MediaQueryListEvent) =>
+      setDarkMode(event.matches);
 
     mediaQuery.addEventListener("change", handleChange);
 

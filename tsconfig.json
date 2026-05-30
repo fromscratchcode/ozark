@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
@@ -10,8 +9,6 @@
     "target": "es2020"
   },
   "include": [
-    "src/**/*.js",
-    "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.d.ts"

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Console from "./Console";
 import Inspector from "./Inspector";
 import { getCodeFromURL, setCodeInURL } from "./urlState";
-import CodeForm from "./CodeForm.jsx";
+import CodeForm from "./CodeForm";
 import { DEFAULT_CODE } from "./examples";
 import type { Memphis } from "./memphis";
 import styles from "./OzarkTool.module.css";
@@ -16,7 +16,7 @@ interface OzarkToolProps {
 }
 
 interface InspectionResult {
-  data: unknown;
+  data?: object;
   error: string;
 }
 
@@ -27,21 +27,21 @@ const getInspectionResult = (
 ): InspectionResult => {
   if (viewMode === "tokens") {
     // Lexing cannot fail, it will always return a token stream.
-    return { data: memphis.lex(code), error: "" };
+    return { data: memphis.lex(code) as object, error: "" };
   }
 
   if (viewMode === "ast") {
     try {
-      return { data: memphis.parse(code), error: "" };
+      return { data: memphis.parse(code) as object, error: "" };
     } catch (error) {
-      return { data: null, error: `Parse error: ${String(error)}` };
+      return { error: `Parse error: ${String(error)}` };
     }
   }
 
   try {
-    return { data: memphis.compile(code), error: "" };
+    return { data: memphis.compile(code) as object, error: "" };
   } catch (error) {
-    return { data: null, error: `Compile error: ${String(error)}` };
+    return { error: `Compile error: ${String(error)}` };
   }
 };
 

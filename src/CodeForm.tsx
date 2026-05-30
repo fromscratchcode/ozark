@@ -1,21 +1,32 @@
 import { useEffect, useState } from "react";
 
-import CodeEditor from "./CodeEditor.jsx";
+import CodeEditor from "./CodeEditor";
 import { EXAMPLES } from "./examples";
 import styles from "./CodeForm.module.css";
 
-const copyText = async (text) => {
+interface CodeFormProps {
+  code: string;
+  setCode: (code: string) => void;
+  darkMode: boolean;
+}
+
+type CopyState = "idle" | "copied" | "error";
+
+const copyText = async (text: string): Promise<void> => {
   if (!navigator.clipboard?.writeText) {
     throw new Error("Clipboard API unavailable");
   }
+
   await navigator.clipboard.writeText(text);
 };
 
-const CodeForm = ({ code, setCode, darkMode }) => {
-  const [copyState, setCopyState] = useState("idle");
+const CodeForm = ({ code, setCode, darkMode }: CodeFormProps) => {
+  const [copyState, setCopyState] = useState<CopyState>("idle");
 
   useEffect(() => {
-    if (copyState !== "copied") return undefined;
+    if (copyState !== "copied") {
+      return undefined;
+    }
 
     const timeoutId = window.setTimeout(() => {
       setCopyState("idle");

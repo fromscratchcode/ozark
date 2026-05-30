@@ -1,11 +1,17 @@
 import JsonView from "@uiw/react-json-view";
 import { darkTheme } from "@uiw/react-json-view/dark";
 import { lightTheme } from "@uiw/react-json-view/light";
+
 import styles from "./Inspector.module.css";
 
-const Inspector = ({ data, darkMode }) => (
+interface InspectorProps {
+  data?: object;
+  darkMode: boolean;
+}
+
+const Inspector = ({ data, darkMode }: InspectorProps) => (
   <div className={styles.outputContainer}>
-    {data && (
+    {Boolean(data) && (
       <JsonView
         style={{
           ...(darkMode ? darkTheme : lightTheme),

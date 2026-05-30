@@ -1,4 +1,9 @@
-export const EXAMPLES = [
+interface Example {
+  label: string;
+  code: string;
+}
+
+export const EXAMPLES: Example[] = [
   {
     label: "Functions",
     code: `tax_rate = 0.08

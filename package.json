@@ -15,7 +15,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "dev": "vite",
     "build": "tsc -p tsconfig.json && vite build",
-    "build:lib": "vite build --mode lib",
+    "build:lib": "tsc -p tsconfig.json && vite build --mode lib",
     "typecheck": "tsc -p tsconfig.json",
     "preview": "vite preview",
     "prepare": "npm run build:lib"
