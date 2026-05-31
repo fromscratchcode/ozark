@@ -4,11 +4,13 @@
   color: var(--console-fg);
   border: 1px solid var(--theme-dark-blue);
   border-radius: var(--corner) !important;
+  box-shadow: 0 8px 24px rgba(4, 96, 189, 0.08);
 }
 
 .darkMode {
-  background: #111;
-  color: #f3f3f3;
+  background: var(--console-dark-bg);
+  color: var(--console-dark-fg);
+  box-shadow: none;
 }
 
 .consoleOutput {
@@ -16,16 +18,23 @@
   background: var(--console-bg) !important;
   /* This is to protect us from host pre styles */
   border-radius: var(--corner) !important;
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 1rem;
+  line-height: 1.5;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
   margin: 0;
 }
 
 .darkMode .consoleOutput {
-  background: #111 !important;
-  color: #f3f3f3;
+  background: var(--console-dark-bg) !important;
+  color: var(--console-dark-fg);
+}
+
+.consoleBox a {
+  color: var(--theme-dark-blue);
 }
 
 .darkMode a {

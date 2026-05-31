@@ -2,8 +2,10 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   --theme-dark-blue: #0460bd;
-  --console-bg: #e0e0e0;
+  --console-bg: #fff;
   --console-fg: #000;
+  --console-dark-bg: #202020;
+  --console-dark-fg: #d9e4ec;
 
   --corner: 6px;
 }
