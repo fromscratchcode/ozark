@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.3.0-rc1",
+  "version": "0.3.0-rc2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
