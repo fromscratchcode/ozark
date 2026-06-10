@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowUpRightFromSquare,
+  faCheck,
+  faLink,
+} from "@fortawesome/free-solid-svg-icons";
 
 import CodeEditor from "./CodeEditor";
 import { EXAMPLES } from "./examples";
+import { encodeCode } from "./urlState";
 import styles from "./CodeForm.module.css";
 
 interface CodeFormProps {
@@ -22,6 +29,7 @@ const copyText = async (text: string): Promise<void> => {
 
 const CodeForm = ({ code, setCode, darkMode }: CodeFormProps) => {
   const [copyState, setCopyState] = useState<CopyState>("idle");
+  const runURL = `https://memphis.fromscratchcode.com?code=${encodeCode(code)}`;
 
   useEffect(() => {
     if (copyState !== "copied") {
@@ -66,13 +74,29 @@ const CodeForm = ({ code, setCode, darkMode }: CodeFormProps) => {
             ))}
           </div>
         </div>
-        <button
-          type="button"
-          className={styles.shareButton}
-          onClick={handleCopyLink}
-        >
-          {copyState === "copied" ? "Link Copied!" : "Share Example"}
-        </button>
+        <div className={styles.toolbarActions}>
+          <button
+            type="button"
+            className={styles.utilityButton}
+            onClick={handleCopyLink}
+            aria-label={copyState === "copied" ? "Link copied" : "Copy link"}
+            title={copyState === "copied" ? "Link copied" : "Copy link"}
+          >
+            <FontAwesomeIcon
+              icon={copyState === "copied" ? faCheck : faLink}
+              className={styles.buttonIcon}
+              aria-hidden="true"
+            />
+          </button>
+          <a className={styles.runButton} href={runURL}>
+            <FontAwesomeIcon
+              icon={faArrowUpRightFromSquare}
+              className={styles.buttonIcon}
+              aria-hidden="true"
+            />
+            Run in Memphis
+          </a>
+        </div>
       </div>
       {copyState === "error" && (
         <div className={styles.copyError}>Unable to copy the share link.</div>

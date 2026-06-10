@@ -1,4 +1,5 @@
-const encode = (str: string): string => btoa(encodeURIComponent(str));
+export const encodeCode = (str: string): string =>
+  btoa(encodeURIComponent(str));
 
 const decode = (str: string): string => {
   try {
@@ -15,7 +16,7 @@ export const getCodeFromURL = (): string => {
 };
 
 export const setCodeInURL = (code: string): void => {
-  const encoded = encode(code);
+  const encoded = encodeCode(code);
   const params = new URLSearchParams(window.location.search);
   params.set("code", encoded);
   const newURL = `${window.location.pathname}?${params.toString()}`;

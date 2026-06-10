@@ -33,6 +33,13 @@
   background: #161616;
 }
 
+.toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
 .examplesRow {
   display: flex;
   align-items: center;
@@ -62,28 +69,28 @@
 }
 
 .exampleChip,
-.shareButton {
+.runButton,
+.utilityButton {
   border: 1px solid var(--theme-dark-blue);
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.exampleChip {
   border-radius: 999px;
   background: #fff;
   color: var(--theme-dark-blue);
-  cursor: pointer;
-  font-family: inherit;
   font-size: 0.875rem;
   font-weight: 600;
-  line-height: 1;
+  padding: 0.4rem 0.7rem;
   white-space: nowrap;
   transition:
     background 0.15s ease,
     color 0.15s ease;
 }
 
-.exampleChip {
-  padding: 0.4rem 0.7rem;
-}
-
-.exampleChip:hover:not(.exampleChipActive),
-.shareButton:hover {
+.exampleChip:hover:not(.exampleChipActive) {
   background: #eff6ff;
 }
 
@@ -92,16 +99,62 @@
   color: #fff;
 }
 
-.shareButton {
+.runButton {
   flex-shrink: 0;
-  min-width: 8.5rem;
-  padding: 0.5rem 0.8rem;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 999px;
+  background: var(--theme-dark-blue);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.55rem 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.runButton:hover {
+  opacity: 0.92;
+}
+
+.runButton:active {
+  transform: translateY(1px);
+}
+
+.utilityButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(239, 246, 255, 0.82);
+  color: #35516d;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.utilityButton:hover {
+  background: #e7f1ff;
+}
+
+.buttonIcon {
+  font-size: 0.8125rem;
 }
 
 .darkMode .exampleChip,
-.darkMode .shareButton {
+.darkMode .utilityButton {
   border-color: var(--theme-dark-blue);
+  background: rgba(20, 28, 36, 0.9);
+  color: #b0c4d8;
+}
+
+.darkMode .exampleChip {
   background: #202020;
   color: var(--theme-dark-blue);
 }
@@ -112,7 +165,7 @@
 }
 
 .darkMode .exampleChip:hover:not(.exampleChipActive),
-.darkMode .shareButton:hover {
+.darkMode .utilityButton:hover {
   background-color: rgba(4, 96, 189, 0.14);
 }
 
@@ -183,7 +236,8 @@
     flex-wrap: wrap;
   }
 
-  .shareButton {
+  .toolbarActions {
     width: 100%;
+    justify-content: flex-end;
   }
 }
