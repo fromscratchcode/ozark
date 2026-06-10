@@ -5,7 +5,7 @@ import {
   defaultHighlightStyle,
   syntaxHighlighting,
 } from "@codemirror/language";
-import { Compartment, EditorState } from "@codemirror/state";
+import { Compartment, EditorSelection, EditorState } from "@codemirror/state";
 import {
   drawSelection,
   EditorView,
@@ -24,6 +24,34 @@ interface CodeEditorProps {
 }
 
 const themeCompartment = new Compartment();
+
+// Mobile virtual keyboards emit Enter through `beforeinput`, but they do not
+// consistently use the same input type at line boundaries. Normalizing both
+// paths here keeps Enter to a single newline on mobile.
+const singleParagraphBreak = EditorView.domEventHandlers({
+  beforeinput(event, view) {
+    if (
+      !(event instanceof InputEvent) ||
+      (event.inputType !== "insertParagraph" &&
+        event.inputType !== "insertLineBreak")
+    ) {
+      return false;
+    }
+
+    event.preventDefault();
+
+    const change = view.state.changeByRange((range) => ({
+      changes: { from: range.from, to: range.to, insert: "\n" },
+      range: EditorSelection.cursor(range.from + 1),
+    }));
+
+    view.dispatch(change, {
+      userEvent: "input",
+    });
+
+    return true;
+  },
+});
 
 const createTheme = (darkMode: boolean) =>
   EditorView.theme(
@@ -108,6 +136,7 @@ const CodeEditor = ({ code, setCode, darkMode }: CodeEditorProps) => {
         python(),
         syntaxHighlighting(defaultHighlightStyle),
         EditorView.lineWrapping,
+        singleParagraphBreak,
         placeholder("Enter Python code here"),
         themeCompartment.of(initialThemeRef.current),
         EditorView.updateListener.of((update) => {
