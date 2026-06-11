@@ -12,7 +12,7 @@ def total(price, quantity):
     subtotal = price * quantity
     return subtotal + subtotal * tax_rate
 
-total(12, 3)`,
+print(total(12, 3))`,
   },
   {
     label: "Classes",
@@ -26,7 +26,7 @@ total(12, 3)`,
         return self.name + " says woof"
 
 dog = Dog("Buster")
-dog.speak()`,
+print(dog.speak())`,
   },
   {
     label: "Closures",
@@ -37,7 +37,7 @@ dog.speak()`,
     return add
 
 add_five = make_adder(5)
-add_five(9)`,
+print(add_five(9))`,
   },
   {
     label: "Loops",
@@ -46,7 +46,7 @@ add_five(9)`,
 for value in [1, 2, 3, 4]:
     total = total + value
 
-total`,
+print(total)`,
   },
 ];
 
