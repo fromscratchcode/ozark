@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faCheck,
+  faChevronDown,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -29,6 +30,8 @@ const copyText = async (text: string): Promise<void> => {
 
 const CodeForm = ({ code, setCode, darkMode }: CodeFormProps) => {
   const [copyState, setCopyState] = useState<CopyState>("idle");
+  const [examplesOpen, setExamplesOpen] = useState(false);
+  const examplesMenuRef = useRef<HTMLDivElement | null>(null);
   const runURL = `https://memphis.fromscratchcode.com?code=${encodeCode(code)}`;
 
   useEffect(() => {
@@ -42,6 +45,24 @@ const CodeForm = ({ code, setCode, darkMode }: CodeFormProps) => {
 
     return () => window.clearTimeout(timeoutId);
   }, [copyState]);
+
+  useEffect(() => {
+    if (!examplesOpen) {
+      return undefined;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!examplesMenuRef.current?.contains(event.target as Node)) {
+        setExamplesOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [examplesOpen]);
 
   const handleCopyLink = async () => {
     const shareURL = window.location.href;
@@ -58,20 +79,41 @@ const CodeForm = ({ code, setCode, darkMode }: CodeFormProps) => {
     <div className={`${styles.editorPanel} ${darkMode ? styles.darkMode : ""}`}>
       <div className={styles.toolbar}>
         <div className={styles.examplesRow}>
-          <span className={styles.examplesLabel}>Try:</span>
-          <div className={styles.exampleList}>
-            {EXAMPLES.map((example) => (
-              <button
-                key={example.label}
-                type="button"
-                className={`${styles.exampleChip} ${
-                  code === example.code ? styles.exampleChipActive : ""
-                }`}
-                onClick={() => setCode(example.code)}
-              >
-                {example.label}
-              </button>
-            ))}
+          <div className={styles.examplesMenu} ref={examplesMenuRef}>
+            <button
+              type="button"
+              className={styles.examplesButton}
+              onClick={() => setExamplesOpen((open) => !open)}
+              aria-expanded={examplesOpen}
+              aria-haspopup="menu"
+            >
+              Examples
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={styles.buttonIcon}
+                aria-hidden="true"
+              />
+            </button>
+            {examplesOpen && (
+              <div className={styles.examplesDropdown} role="menu">
+                {EXAMPLES.map((example) => (
+                  <button
+                    key={example.label}
+                    type="button"
+                    role="menuitem"
+                    className={`${styles.exampleOption} ${
+                      code === example.code ? styles.exampleOptionActive : ""
+                    }`}
+                    onClick={() => {
+                      setCode(example.code);
+                      setExamplesOpen(false);
+                    }}
+                  >
+                    {example.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.toolbarActions}>

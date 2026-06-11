@@ -46,31 +46,16 @@
   gap: 0.5rem;
   min-width: 0;
   flex: 1;
-  overflow: hidden;
+  overflow: visible;
 }
 
-.examplesLabel {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
+.examplesMenu {
+  position: relative;
+  flex-shrink: 0;
 }
 
-.exampleList {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  min-width: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.exampleList::-webkit-scrollbar {
-  display: none;
-}
-
-.exampleChip,
+.examplesButton,
+.exampleOption,
 .runButton,
 .utilityButton {
   border: 1px solid var(--theme-dark-blue);
@@ -79,26 +64,62 @@
   line-height: 1;
 }
 
-.exampleChip {
+.examplesButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   border-radius: 999px;
   background: #fff;
   color: var(--theme-dark-blue);
   font-size: 0.875rem;
   font-weight: 600;
-  padding: 0.4rem 0.7rem;
+  padding: 0.45rem 0.75rem;
   white-space: nowrap;
   transition:
     background 0.15s ease,
     color 0.15s ease;
 }
 
-.exampleChip:hover:not(.exampleChipActive) {
+.examplesButton:hover {
   background: #eff6ff;
 }
 
-.exampleChipActive {
-  background: var(--theme-dark-blue);
-  color: #fff;
+.examplesDropdown {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 10rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(4, 96, 189, 0.22);
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(4, 96, 189, 0.16);
+}
+
+.exampleOption {
+  border: 0;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: #35516d;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.exampleOption:hover {
+  background: #eff6ff;
+}
+
+.exampleOptionActive {
+  background: rgba(4, 96, 189, 0.1);
+  color: var(--theme-dark-blue);
 }
 
 .runButton {
@@ -149,26 +170,35 @@
   font-size: 0.8125rem;
 }
 
-.darkMode .exampleChip,
+.darkMode .examplesButton,
 .darkMode .utilityButton {
   border-color: var(--theme-dark-blue);
   background: rgba(20, 28, 36, 0.9);
   color: #b0c4d8;
 }
 
-.darkMode .exampleChip {
-  background: #202020;
-  color: var(--theme-dark-blue);
-}
-
-.darkMode .exampleChipActive {
-  background: var(--theme-dark-blue);
-  color: #fff;
-}
-
-.darkMode .exampleChip:hover:not(.exampleChipActive),
+.darkMode .examplesButton:hover,
 .darkMode .utilityButton:hover {
   background-color: rgba(4, 96, 189, 0.14);
+}
+
+.darkMode .examplesDropdown {
+  border-color: rgba(4, 96, 189, 0.22);
+  background: #161616;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
+}
+
+.darkMode .exampleOption {
+  color: #b0c4d8;
+}
+
+.darkMode .exampleOption:hover {
+  background: rgba(4, 96, 189, 0.14);
+}
+
+.darkMode .exampleOptionActive {
+  background: rgba(4, 96, 189, 0.2);
+  color: #f3f6fa;
 }
 
 .editorSurface {
