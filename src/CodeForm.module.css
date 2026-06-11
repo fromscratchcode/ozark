@@ -45,6 +45,8 @@
   align-items: center;
   gap: 0.5rem;
   min-width: 0;
+  flex: 1;
+  overflow: hidden;
 }
 
 .examplesLabel {
@@ -233,11 +235,10 @@
 
 @media (max-width: 720px) {
   .toolbar {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .toolbarActions {
-    width: 100%;
     justify-content: flex-end;
   }
 }
