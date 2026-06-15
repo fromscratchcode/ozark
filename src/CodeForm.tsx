@@ -32,7 +32,7 @@ const CodeForm = ({ code, setCode, darkMode }: CodeFormProps) => {
   const [copyState, setCopyState] = useState<CopyState>("idle");
   const [examplesOpen, setExamplesOpen] = useState(false);
   const examplesMenuRef = useRef<HTMLDivElement | null>(null);
-  const runURL = `https://memphis.fromscratchcode.com?code=${encodeCode(code)}`;
+  const runURL = `https://memphis.fromscratchcode.com?c=${encodeCode(code)}&cv=1`;
 
   useEffect(() => {
     if (copyState !== "copied") {

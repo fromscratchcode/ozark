@@ -31,6 +31,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/react-fontawesome": "^3.3.1",
     "@uiw/react-json-view": "^2.0.0-alpha.32",
+    "lz-string": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
