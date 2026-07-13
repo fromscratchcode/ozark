@@ -5,7 +5,7 @@ import Inspector from "./Inspector";
 import { getCodeFromURL, setCodeInURL } from "./urlState";
 import CodeForm from "./CodeForm";
 import { DEFAULT_CODE } from "./examples";
-import type { Memphis } from "./memphis";
+import type { Memphis } from "@fromscratchcode/memphis-js";
 import styles from "./OzarkTool.module.css";
 import ToggleBar from "./ToggleBar";
 import type { ViewMode } from "./types";

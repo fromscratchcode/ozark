@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "./Ozark.css";
-import { createMemphis } from "./memphis";
-import type { Memphis } from "./memphis";
+import { getMemphis, type Memphis } from "@fromscratchcode/memphis-js";
 import OzarkTool from "./OzarkTool";
 
 interface OzarkProps {
@@ -41,7 +40,7 @@ const Ozark = ({ darkMode = false }: OzarkProps) => {
     setMemphis(null);
     setInitError(null);
 
-    createMemphis()
+    getMemphis()
       .then((runtime) => {
         if (!cancelled) {
           setMemphis(runtime);
